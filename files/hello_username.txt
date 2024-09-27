@@ -1,0 +1,15 @@
+  section_data
+  question . What is your name?
+  hello . Hello,
+  mark . !
+  section_program
+  start:
+    LD question R6
+    LD hello R7
+    LD mark R8
+    out R6
+    IN
+    OUT R7
+    OUT R4
+    OUT R8
+    HLT

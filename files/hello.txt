@@ -1,0 +1,10 @@
+  section_data
+  hello . hello
+  world . , world!
+  section_program
+  start:
+    LD hello R6
+    LD world R7
+    OUT R6
+    OUT R7
+    HLT

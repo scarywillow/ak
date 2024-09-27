@@ -1,0 +1,34 @@
+section_data
+max_limit . 1000  ; Лимит для проверки чисел (1000)
+zero . 0          ; Константа для нуля
+three . 3         ; Константа для числа 3
+five . 5          ; Константа для числа 5
+one . 1
+
+section_program
+  ; Инициализация
+  LD zero R6    ; R6 = 0 (счетчик)
+  LD zero R7    ; R7 = 0 (сумма кратных 3 или 5)
+  LD one R1
+  LD max_limit R9; R9 = 1000
+  LD three R8; R8 = 3
+  LD five R15; R15 = 5
+check_loop:
+  ADD R6 R1 R6          ; Увеличить счетчик на 1: R6 = R6 + 1
+  SUB R9 R6 R10         ; R10 = max_limit - R6
+  JZ end_program        ; Если R6 >= 1000, закончить
+  ; Проверить кратность числа 3
+  MOD R6 R8 R11         ; R11 = R6 % 3
+  JZ is_divisible       ; Если R6 делится на 3, перейти к добавлению
+  ; Проверить кратность числа 5
+  MOD R6 R15 R11         ; R11 = R6 % 5
+  JZ is_divisible       ; Если R6 делится на 5, перейти к добавлению
+next_number:
+  JUMP check_loop       ; Перейти к следующему числу
+is_divisible:
+  ; Добавить число к сумме
+  ADD R7 R6 R7          ; R7 += R6
+  JUMP next_number      ; Перейти к следующему числу
+end_program:
+  OUT R7         ; Вывести сумму кратных чисел
+  HLT                   ; Остановить программу

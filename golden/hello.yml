@@ -1,0 +1,38 @@
+in_source: |
+  section_data
+  hello . hello
+  world . , world!
+  section_program
+  start:
+    LD hello R6
+    LD world R7
+    OUT R6
+    OUT R7
+    HLT
+in_stdin: ''
+out_code: |
+  Instruction counter: 0, LD ['hello', 'R6']
+  Instruction counter: 1, LD ['world', 'R7']
+  Instruction counter: 2, OUT ['R6']
+  Instruction counter: 3, OUT ['R7']
+  Instruction counter: 4, HLT []
+out_stdout: 'hello, world!'
+out_log: |
+  DEBUG    root:machine.py:250 LD ['hello', 'R6'] {PC: 0, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: , REG7: , REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: []}
+  DEBUG    root:machine.py:250 LD ['world', 'R7'] {PC: 1, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: []}
+  DEBUG    root:machine.py:250 OUT ['R6'] {PC: 2, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: []}
+  DEBUG    root:machine.py:198 OUT ['R6'] {PC: 2, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h']}
+  DEBUG    root:machine.py:198 OUT ['R6'] {PC: 2, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e']}
+  DEBUG    root:machine.py:198 OUT ['R6'] {PC: 2, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l']}
+  DEBUG    root:machine.py:198 OUT ['R6'] {PC: 2, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l']}
+  DEBUG    root:machine.py:198 OUT ['R6'] {PC: 2, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o']}
+  DEBUG    root:machine.py:250 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd']}
+  DEBUG    root:machine.py:198 OUT ['R7'] {PC: 3, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!']}
+  DEBUG    root:machine.py:250 HLT [] {PC: 4, REG0: 0, REG1: , REG2: , REG3: , REG4: , REG5: , REG6: hello, REG7: , world!, REG8: , REG9: , REG10: , REG11: , REG12: , REG13: , REG14: , REG15: , OUTPUT_PORT: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!']}
