@@ -98,7 +98,7 @@ class DataPath:
         self.input_stream.pop(0)
 
     def save_memory(self, mem_key: str, value: str):
-        pass
+        self.data_mem.memory[mem_key] = value
 
 
 class ControlUnit:
